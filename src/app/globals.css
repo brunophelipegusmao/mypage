@@ -44,92 +44,122 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #3e9dfc;
-    --primary-010: #1e90ff;
-    --primary-020: #7ec1e5;
-    --primary-030: #a1d5e4;
+    /* Cores customizadas para o tema escuro */
+    --primary: #049DD9;
+    --primary-010: #0289c4;
+    --primary-020: #0176a3;
+    --primary-030: #015f82;
 
-    --secondary: oklch(28.3% 0.141 291.089);
-    --secondary-010: #56256c;
-    --secondary-020: #5e1c69;
-    --secondary-030: #874c8c;
+    --secondary: #140126;
+    --secondary-010: #0f011e;
+    --secondary-020: #0a0015;
+    --secondary-030: #050009;
 
     --white: #fff;
     --grey: #adadad;
 
-    --black: #0b0b20e9;
-    --black-010: #0e0e30;
-
+    --black: #0d0000d0;
+    --black-010: #000000;
   }
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Tema personalizado com as cores especificadas */
+  --background: #000000af;
+  /* Background preto */
+  --foreground: #ffffff;
+  /* Texto claro no background preto */
+  --card: #3658BF;
+  /* Cards em azul roxo */
+  --card-foreground: #ffffff;
+  --popover: #3658BF;
+  --popover-foreground: #ffffff;
+  --primary: #049DD9;
+  /* Azul claro como primary */
+  --primary-foreground: #0D0000;
+  /* Texto escuro no primary */
+  --secondary: #140126;
+  /* Roxo escuro para secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #3658BF;
+  --muted-foreground: #ffffff;
+  --accent: #049DD9;
+  /* Azul claro para accent */
+  --accent-foreground: #0D0000;
+  --destructive: #ef4444;
+  /* Vermelho padrão para destructive */
+  --destructive-foreground: #ffffff;
+  --border: #140126;
+  /* Bordas com roxo escuro */
+  --input: #3658BF;
+  /* Inputs com azul roxo */
+  --ring: #049DD9;
+  /* Ring com azul claro */
+
+  /* Charts adaptados ao novo tema */
+  --chart-1: #049DD9;
+  --chart-2: #3658BF;
+  --chart-3: #4A1FA6;
+  --chart-4: #140126;
+  --chart-5: #0D0000;
+
+  /* Sidebar adaptada */
+  --sidebar: #140126;
+  /* Sidebar com roxo escuro */
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #049DD9;
+  --sidebar-primary-foreground: #0D0000;
+  --sidebar-accent: #3658BF;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4A1FA6;
+  --sidebar-ring: #049DD9;
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* Tema escuro adaptado */
+  --background: #000000;
+  /* Background preto */
+  --foreground: #ffffff;
+  --card: #140126;
+  /* Cards com roxo escuro */
+  --card-foreground: #ffffff;
+  --popover: #140126;
+  --popover-foreground: #ffffff;
+  --primary: #049DD9;
+  /* Mantém azul claro como primary */
+  --primary-foreground: #0D0000;
+  --secondary: #3658BF;
+  /* Azul roxo para secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #140126;
+  --muted-foreground: #ffffff;
+  --accent: #4A1FA6;
+  /* Roxo médio para accent */
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #140126;
+  --input: #140126;
+  --ring: #049DD9;
+
+  /* Charts para tema escuro */
+  --chart-1: #049DD9;
+  --chart-2: #4A1FA6;
+  --chart-3: #3658BF;
+  --chart-4: #140126;
+  --chart-5: #ffffff;
+
+  /* Sidebar tema escuro */
+  --sidebar: #0D0000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #049DD9;
+  --sidebar-primary-foreground: #0D0000;
+  --sidebar-accent: #140126;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #140126;
+  --sidebar-ring: #049DD9;
 }
 
 @layer base {
