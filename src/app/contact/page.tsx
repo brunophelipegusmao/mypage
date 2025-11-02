@@ -1,9 +1,31 @@
+import { Metadata } from "next";
+
 import {
   AvailabilityCard,
   ContactForm,
   ContactInfoCard,
   SocialLinksCard,
 } from "@/components";
+
+export const metadata: Metadata = {
+  title: "Contato - BGM Tecnologia Web | Entre em Contato",
+  description:
+    "Entre em contato com Bruno Gusmão Mulim para projetos de desenvolvimento web, consultoria técnica e soluções personalizadas. Resposta em até 24 horas.",
+  keywords:
+    "contato, bruno mulim, desenvolvedor, consultoria, orçamento, projeto web, desenvolvimento",
+  openGraph: {
+    title: "Contato - BGM Tecnologia Web",
+    description:
+      "Entre em contato para projetos e consultoria em desenvolvimento web",
+    url: "https://bgm-tecnologia.vercel.app/contact",
+  },
+  twitter: {
+    card: "summary",
+    title: "Contato - BGM Tecnologia Web",
+    description:
+      "Entre em contato para projetos e consultoria em desenvolvimento web",
+  },
+};
 
 export default function ContactPage() {
   const contactInfo = [
@@ -15,7 +37,7 @@ export default function ContactPage() {
 
   const availability = [
     { day: "Segunda - Sexta", time: "9h às 18h", available: true },
-    
+
     { day: " Sábado e Domingo", time: "Indisponível", available: false },
   ];
 
@@ -37,14 +59,14 @@ export default function ContactPage() {
           <ContactForm animation="fade-in-up animate-delay-200" />
 
           {/* Informações de Contato */}
-          <div className="space-y-6 fade-in-up animate-delay-400">
+          <div className="fade-in-up animate-delay-400 space-y-6">
             <ContactInfoCard contacts={contactInfo} />
-            
+
             <AvailabilityCard
               availability={availability}
               description="Estou disponível para novos projetos e consultorias. Respondo todas as mensagens em até 24 horas."
             />
-            
+
             <SocialLinksCard links={socialLinks} />
           </div>
         </div>

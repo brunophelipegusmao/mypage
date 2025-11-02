@@ -1,4 +1,24 @@
+import { Metadata } from "next";
+
 import { ProjectCard } from "@/components";
+
+export const metadata: Metadata = {
+  title: "Portfólio - BGM Tecnologia Web | Projetos Desenvolvidos",
+  description:
+    "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim. Sistemas web completos, aplicações modernas com Next.js, React e TypeScript.",
+  keywords:
+    "portfólio, projetos web, next.js, react, typescript, sistema academia, desenvolvimento full stack",
+  openGraph: {
+    title: "Portfólio - BGM Tecnologia Web",
+    description: "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim",
+    url: "https://bgm-tecnologia.vercel.app/portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfólio - BGM Tecnologia Web",
+    description: "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim",
+  },
+};
 
 export default function PortfolioPage() {
   const projects = [

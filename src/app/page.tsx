@@ -1,4 +1,33 @@
+import { Metadata } from "next";
+
 import { Button, Card, CardContent, CardTitle } from "@/components";
+
+export const metadata: Metadata = {
+  title: "BGM Tecnologia Web - Bruno Gusmão Mulim | Desenvolvedor Full Stack",
+  description:
+    "Desenvolvedor Full Stack especializado em Next.js, React e TypeScript. Criação de websites modernos, aplicações web e consultoria técnica no Rio de Janeiro.",
+  keywords:
+    "bruno gusmão mulim, desenvolvedor full stack, next.js, react, typescript, desenvolvimento web, rio de janeiro, bgm tecnologia",
+  openGraph: {
+    title: "BGM Tecnologia Web - Desenvolvedor Full Stack",
+    description:
+      "Soluções modernas em desenvolvimento web com Next.js, React e TypeScript",
+    url: "https://bgm-tecnologia.vercel.app",
+    images: [
+      {
+        url: "/og-image.svg", // Atualizado para SVG
+        width: 1200,
+        height: 630,
+        alt: "BGM Tecnologia Web",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BGM Tecnologia Web - Desenvolvedor Full Stack",
+    description: "Soluções modernas em desenvolvimento web",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -91,7 +120,8 @@ export default function HomePage() {
                 Smartphones
               </CardTitle>
               <CardContent className="text-muted-foreground/80">
-                Deixamos todos essas páginas responsivas e utilizáveis no smartphones e tablets
+                Deixamos todos essas páginas responsivas e utilizáveis no
+                smartphones e tablets
               </CardContent>
             </Card>
           </div>

@@ -1,4 +1,24 @@
+import { Metadata } from "next";
+
 import { ServiceCard } from "@/components";
+
+export const metadata: Metadata = {
+  title: "Serviços - BGM Tecnologia Web | Desenvolvimento & Consultoria",
+  description:
+    "Serviços especializados em desenvolvimento web, consultoria técnica, criação de sites, e-commerce e aplicações modernas. Soluções completas em tecnologia.",
+  keywords:
+    "desenvolvimento web, consultoria técnica, criação de sites, e-commerce, aplicações web, next.js, react, typescript",
+  openGraph: {
+    title: "Serviços - BGM Tecnologia Web",
+    description: "Desenvolvimento web e consultoria técnica especializada",
+    url: "https://bgm-tecnologia.vercel.app/services",
+  },
+  twitter: {
+    card: "summary",
+    title: "Serviços - BGM Tecnologia Web",
+    description: "Desenvolvimento web e consultoria técnica especializada",
+  },
+};
 
 export default function ServicesPage() {
   const services = [
