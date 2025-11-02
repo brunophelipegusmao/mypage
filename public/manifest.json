@@ -1,0 +1,24 @@
+{
+  "name": "BGM Tecnologia Web",
+  "short_name": "BGM Tech",
+  "description": "Desenvolvedor Full Stack especializado em soluções modernas e inovadoras",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#049DD9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "technology", "developer"],
+  "lang": "pt-BR"
+}
