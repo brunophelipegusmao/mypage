@@ -85,6 +85,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://bgm-tecnologia.vercel.app",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/icon-192x192.png",
+    shortcut: "/favicon.svg",
+  },
   other: {
     "msapplication-TileColor": "#049DD9",
     "theme-color": "#049DD9",
