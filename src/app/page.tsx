@@ -3,29 +3,30 @@ import { Metadata } from "next";
 import { Button, Card, CardContent, CardTitle } from "@/components";
 
 export const metadata: Metadata = {
-  title: "BGM Tecnologia Web - Bruno Gusmão Mulim | Desenvolvedor Full Stack",
+  title: "Corelayer - Arquitetura limpa, entrega previsível",
   description:
-    "Desenvolvedor Full Stack especializado em Next.js, React e TypeScript. Criação de websites modernos, aplicações web e consultoria técnica no Rio de Janeiro.",
+    "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
   keywords:
-    "bruno gusmão mulim, desenvolvedor full stack, next.js, react, typescript, desenvolvimento web, rio de janeiro, bgm tecnologia",
+    "corelayer, clean architecture, desenvolvimento web, desenvolvimento mobile, apis, dashboards, next.js, react, typescript",
   openGraph: {
-    title: "BGM Tecnologia Web - Desenvolvedor Full Stack",
+    title: "Corelayer - Arquitetura limpa, entrega previsível",
     description:
-      "Soluções modernas em desenvolvimento web com Next.js, React e TypeScript",
+      "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
     url: "https://bgm-tecnologia.vercel.app",
     images: [
       {
-        url: "/og-image.svg", // Atualizado para SVG
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "BGM Tecnologia Web",
+        alt: "Corelayer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BGM Tecnologia Web - Desenvolvedor Full Stack",
-    description: "Soluções modernas em desenvolvimento web",
+    title: "Corelayer - Arquitetura limpa, entrega previsível",
+    description:
+      "Sistemas sob medida para web e mobile com foco em performance e qualidade.",
   },
 };
 
@@ -36,11 +37,11 @@ export default function HomePage() {
       <section className="px-4 py-16 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-primary animate-fade-in mb-6 text-4xl font-bold md:text-6xl">
-            Bem-vindo a BGM Tecnologia Web
+            Arquitetura limpa, entrega previsível.
           </h1>
           <p className="text-foreground/80 animate-fade-in animation-delay-300 mb-8 text-xl md:text-2xl">
-            Desenvolvedor Full Stack especializado em soluções modernas e
-            inovadoras
+            Sistemas sob medida para web e mobile. Do planejamento ao deploy,
+            com foco em performance, DX e qualidade de produção.
           </p>
           <div className="animate-fade-in animation-delay-600 flex flex-col justify-center gap-4 sm:flex-row">
             <Button href="/portfolio" variant="primary" size="lg">
@@ -80,10 +81,10 @@ export default function HomePage() {
                 animation="animate-fade-in-up animation-delay-600"
                 className="h-full text-center"
               >
-                <CardTitle className="text-center">Consultoria Tech</CardTitle>
+                <CardTitle className="text-center">APIs & Dashboards</CardTitle>
                 <CardContent className="text-center">
-                  Assessoria em tecnologia e arquitetura de sistemas para sua
-                  empresa.
+                  Desenvolvimento de APIs RESTful e dashboards interativos para
+                  gestão de dados.
                 </CardContent>
               </Card>
             </div>

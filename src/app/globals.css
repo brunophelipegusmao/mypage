@@ -44,21 +44,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Cores customizadas para o tema escuro */
-    --primary: #049DD9;
-    --primary-010: #0289c4;
-    --primary-020: #0176a3;
-    --primary-030: #015f82;
+    /* Cores Corelayer - tema escuro */
+    --primary: #1B6AFF;
+    --primary-010: #2780FF;
+    --primary-020: #3B8CFF;
+    --primary-030: #4F98FF;
 
-    --secondary: #140126;
-    --secondary-010: #0f011e;
-    --secondary-020: #0a0015;
-    --secondary-030: #050009;
+    --secondary: #0E0E10;
+    --secondary-010: #1A1A1D;
+    --secondary-020: #252529;
+    --secondary-030: #303035;
 
     --white: #fff;
     --grey: #adadad;
 
-    --black: #0d0000d0;
+    --black: #0E0E10;
     --black-010: #000000;
   }
 }
@@ -66,100 +66,83 @@
 :root {
   --radius: 0.625rem;
 
-  /* Tema personalizado com as cores especificadas */
-  --background: #000000af;
-  /* Background preto */
-  --foreground: #ffffff;
-  /* Texto claro no background preto */
-  --card: #3658BF;
-  /* Cards em azul roxo */
-  --card-foreground: #ffffff;
-  --popover: #3658BF;
-  --popover-foreground: #ffffff;
-  --primary: #049DD9;
-  /* Azul claro como primary */
-  --primary-foreground: #0D0000;
-  /* Texto escuro no primary */
-  --secondary: #140126;
-  /* Roxo escuro para secondary */
-  --secondary-foreground: #ffffff;
-  --muted: #3658BF;
-  --muted-foreground: #ffffff;
-  --accent: #049DD9;
-  /* Azul claro para accent */
-  --accent-foreground: #0D0000;
+  /* Tema Light - Corelayer */
+  --background: #FFFFFF;
+  --foreground: #0E0E10;
+  --card: #F5F5F7;
+  --card-foreground: #0E0E10;
+  --popover: #FFFFFF;
+  --popover-foreground: #0E0E10;
+  --primary: #1B6AFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F7;
+  --secondary-foreground: #0E0E10;
+  --muted: #E8E8EA;
+  --muted-foreground: #6B6B6B;
+  --accent: #2780FF;
+  --accent-foreground: #FFFFFF;
   --destructive: #ef4444;
-  /* Vermelho padrão para destructive */
   --destructive-foreground: #ffffff;
-  --border: #140126;
-  /* Bordas com roxo escuro */
-  --input: #3658BF;
-  /* Inputs com azul roxo */
-  --ring: #049DD9;
-  /* Ring com azul claro */
+  --border: #E8E8EA;
+  --input: #E8E8EA;
+  --ring: #1B6AFF;
 
-  /* Charts adaptados ao novo tema */
-  --chart-1: #049DD9;
-  --chart-2: #3658BF;
-  --chart-3: #4A1FA6;
-  --chart-4: #140126;
-  --chart-5: #0D0000;
+  /* Charts tema light */
+  --chart-1: #1B6AFF;
+  --chart-2: #2780FF;
+  --chart-3: #3B8CFF;
+  --chart-4: #4F98FF;
+  --chart-5: #63A4FF;
 
-  /* Sidebar adaptada */
-  --sidebar: #140126;
-  /* Sidebar com roxo escuro */
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #049DD9;
-  --sidebar-primary-foreground: #0D0000;
-  --sidebar-accent: #3658BF;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #4A1FA6;
-  --sidebar-ring: #049DD9;
+  /* Sidebar tema light */
+  --sidebar: #F5F5F7;
+  --sidebar-foreground: #0E0E10;
+  --sidebar-primary: #1B6AFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8E8EA;
+  --sidebar-accent-foreground: #0E0E10;
+  --sidebar-border: #E8E8EA;
+  --sidebar-ring: #1B6AFF;
 }
 
 .dark {
-  /* Tema escuro adaptado */
-  --background: #000000;
-  /* Background preto */
-  --foreground: #ffffff;
-  --card: #140126;
-  /* Cards com roxo escuro */
-  --card-foreground: #ffffff;
-  --popover: #140126;
-  --popover-foreground: #ffffff;
-  --primary: #049DD9;
-  /* Mantém azul claro como primary */
-  --primary-foreground: #0D0000;
-  --secondary: #3658BF;
-  /* Azul roxo para secondary */
-  --secondary-foreground: #ffffff;
-  --muted: #140126;
-  --muted-foreground: #ffffff;
-  --accent: #4A1FA6;
-  /* Roxo médio para accent */
-  --accent-foreground: #ffffff;
+  /* Tema Dark - Corelayer */
+  --background: #0E0E10;
+  --foreground: #FFFFFF;
+  --card: #1A1A1D;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1D;
+  --popover-foreground: #FFFFFF;
+  --primary: #1B6AFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #252529;
+  --secondary-foreground: #FFFFFF;
+  --muted: #252529;
+  --muted-foreground: #9B9B9B;
+  --accent: #2780FF;
+  --accent-foreground: #FFFFFF;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #140126;
-  --input: #140126;
-  --ring: #049DD9;
+  --border: #252529;
+  --input: #1A1A1D;
+  --ring: #1B6AFF;
 
-  /* Charts para tema escuro */
-  --chart-1: #049DD9;
-  --chart-2: #4A1FA6;
-  --chart-3: #3658BF;
-  --chart-4: #140126;
-  --chart-5: #ffffff;
+  /* Charts tema dark */
+  --chart-1: #1B6AFF;
+  --chart-2: #2780FF;
+  --chart-3: #3B8CFF;
+  --chart-4: #4F98FF;
+  --chart-5: #FFFFFF;
 
-  /* Sidebar tema escuro */
-  --sidebar: #0D0000;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #049DD9;
-  --sidebar-primary-foreground: #0D0000;
-  --sidebar-accent: #140126;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #140126;
-  --sidebar-ring: #049DD9;
+  /* Sidebar tema dark */
+  --sidebar: #0E0E10;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #1B6AFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1A1D;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #252529;
+  --sidebar-ring: #1B6AFF;
 }
 
 @layer base {

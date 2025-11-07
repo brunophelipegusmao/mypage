@@ -1,11 +1,10 @@
 "use client";
 
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import logo from "./logo.svg";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,13 +58,16 @@ export default function Header() {
       {/* Logo */}
       <Link href="/" className="animate-slide-in-left shrink-0">
         <div className="group flex flex-col items-center sm:flex-row sm:space-x-3">
-          <Image
-            src={logo}
-            alt="Logo"
-            width={60}
-            height={60}
-            className="transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-125 sm:h-20 sm:w-20"
-          />
+          <svg
+            aria-hidden="true"
+            className="h-12 w-12 transition-all duration-300 group-hover:scale-110 sm:h-16 sm:w-16"
+            viewBox="0 0 64 64"
+            fill="none"
+          >
+            <rect x="10" y="14" width="44" height="10" rx="2" fill="#1B6AFF" />
+            <rect x="14" y="28" width="36" height="10" rx="2" fill="#2780FF" />
+            <rect x="18" y="42" width="28" height="10" rx="2" fill="#3B8CFF" />
+          </svg>
           <span
             className={clsx(
               "text-center text-sm font-extrabold sm:text-left sm:text-lg",
@@ -75,13 +77,13 @@ export default function Header() {
               "from-primary to-secondary bg-linear-to-r bg-clip-text group-hover:text-transparent",
             )}
           >
-            BRUNO GUSMÃO MULIM
+            CORELAYER
           </span>
         </div>
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="animate-slide-in-right animation-delay-300 hidden lg:block">
+      <div className="animate-slide-in-right animation-delay-300 hidden items-center gap-4 lg:flex">
         <nav>
           <ul className="flex justify-around space-x-4 px-12">
             <li
@@ -110,43 +112,47 @@ export default function Header() {
             </li>
           </ul>
         </nav>
+        <ThemeToggle />
       </div>
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleMenu}
-        className="bg-card/50 hover:bg-card border-border focus:ring-primary animate-fade-in animation-delay-400 rounded-lg border p-2 transition-all duration-300 hover:scale-110 focus:ring-2 focus:outline-none lg:hidden"
-        aria-label="Toggle menu"
-      >
-        <div className="flex h-6 w-6 flex-col items-center justify-center">
-          <span
-            className={clsx(
-              "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
-              isMenuOpen ? "translate-y-1 rotate-45" : "-translate-y-1",
-            )}
-          />
-          <span
-            className={clsx(
-              "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
-              isMenuOpen ? "opacity-0" : "opacity-100",
-            )}
-          />
-          <span
-            className={clsx(
-              "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
-              isMenuOpen ? "-translate-y-1 -rotate-45" : "translate-y-1",
-            )}
-          />
-        </div>
-      </button>
+      {/* Mobile Menu Button and Theme Toggle */}
+      <div className="flex items-center gap-2 lg:hidden">
+        <ThemeToggle />
+        <button
+          onClick={toggleMenu}
+          className="bg-card/50 hover:bg-card border-border focus:ring-primary animate-fade-in animation-delay-400 rounded-lg border p-2 transition-all duration-300 hover:scale-110 focus:ring-2 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <div className="flex h-6 w-6 flex-col items-center justify-center">
+            <span
+              className={clsx(
+                "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
+                isMenuOpen ? "translate-y-1 rotate-45" : "-translate-y-1",
+              )}
+            />
+            <span
+              className={clsx(
+                "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
+                isMenuOpen ? "opacity-0" : "opacity-100",
+              )}
+            />
+            <span
+              className={clsx(
+                "bg-foreground block h-0.5 w-6 transition-all duration-300 ease-out",
+                isMenuOpen ? "-translate-y-1 -rotate-45" : "translate-y-1",
+              )}
+            />
+          </div>
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       <div
         className={clsx(
           "bg-background/95 border-border shadow-primary/10 absolute top-full left-0 z-50 w-full border-b shadow-xl backdrop-blur-sm transition-all duration-300 ease-in-out lg:hidden",
           isMenuOpen
-            ? "visible translate-y-0 transform opacity-100"
-            : "invisible -translate-y-2 transform opacity-0",
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-2 opacity-0",
         )}
       >
         <nav className="py-2">

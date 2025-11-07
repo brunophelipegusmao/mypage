@@ -4,7 +4,7 @@ import clsx from "clsx";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import Header from "@/components/Header";
+import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,36 +19,33 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bgm-tecnologia.vercel.app"),
   title: {
-    default: "BGM Tecnologia Web - Bruno Gusmão Mulim",
-    template: "%s | BGM Tecnologia Web",
+    default: "Corelayer - Arquitetura limpa, entrega previsível",
+    template: "%s | Corelayer",
   },
   description:
-    "Desenvolvedor Full Stack especializado em soluções modernas e inovadoras. Criação de websites, aplicações web e consultoria técnica com Next.js, React e TypeScript.",
+    "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
   keywords: [
-    "desenvolvedor full stack",
+    "corelayer",
+    "clean architecture",
+    "desenvolvimento web",
+    "desenvolvimento mobile",
+    "apis",
+    "dashboards",
     "next.js",
     "react",
     "typescript",
-    "desenvolvimento web",
-    "bruno mulim",
-    "bgm tecnologia",
-    "consultoria técnica",
-    "aplicações web",
-    "sites responsivos",
-    "e-commerce",
-    "rio de janeiro",
   ],
-  authors: [{ name: "Bruno Gusmão Mulim", url: "https://github.com/bmulim" }],
-  creator: "Bruno Gusmão Mulim",
-  publisher: "BGM Tecnologia Web",
+  authors: [{ name: "Corelayer" }],
+  creator: "Corelayer",
+  publisher: "Corelayer",
   category: "technology",
   classification: "Business",
   openGraph: {
-    title: "BGM Tecnologia Web - Bruno Gusmão Mulim",
+    title: "Corelayer - Arquitetura limpa, entrega previsível",
     description:
-      "Desenvolvedor Full Stack especializado em soluções modernas e inovadoras",
+      "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
     url: "https://bgm-tecnologia.vercel.app",
-    siteName: "BGM Tecnologia Web",
+    siteName: "Corelayer",
     locale: "pt_BR",
     type: "website",
     images: [
@@ -56,16 +53,16 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "BGM Tecnologia Web - Desenvolvedor Full Stack",
+        alt: "Corelayer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BGM Tecnologia Web - Bruno Gusmão Mulim",
+    title: "Corelayer - Arquitetura limpa, entrega previsível",
     description:
-      "Desenvolvedor Full Stack especializado em soluções modernas e inovadoras",
-    creator: "@brunopmulim",
+      "Sistemas sob medida para web e mobile com foco em performance e qualidade.",
+    creator: "@corelayer",
     images: ["/og-image.svg"],
   },
   robots: {
@@ -87,15 +84,23 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon-light.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
     ],
     apple: "/icon-192x192.png",
-    shortcut: "/favicon.svg",
+    shortcut: "/favicon-dark.svg",
   },
   other: {
-    "msapplication-TileColor": "#049DD9",
-    "theme-color": "#049DD9",
+    "msapplication-TileColor": "#1B6AFF",
+    "theme-color": "#1B6AFF",
   },
 };
 
@@ -108,62 +113,25 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": "https://bgm-tecnologia.vercel.app/#person",
-        name: "Bruno Gusmão Mulim",
-        url: "https://bgm-tecnologia.vercel.app",
-        image: "https://bgm-tecnologia.vercel.app/bruno-profile.jpg",
-        jobTitle: "Desenvolvedor Full Stack",
-        worksFor: {
-          "@type": "Organization",
-          name: "BGM Tecnologia Web",
-        },
-        sameAs: [
-          "https://github.com/bmulim",
-          "https://www.linkedin.com/in/bruno-mulim/",
-          "https://instagram.com/brunopmulim",
-        ],
-        knowsAbout: [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Desenvolvimento Web",
-          "Consultoria Técnica",
-        ],
-        address: {
-          "@type": "PostalAddress",
-          addressRegion: "RJ",
-          addressCountry: "BR",
-          addressLocality: "Rio de Janeiro",
-        },
-      },
-      {
         "@type": "Organization",
         "@id": "https://bgm-tecnologia.vercel.app/#organization",
-        name: "BGM Tecnologia Web",
+        name: "Corelayer",
         url: "https://bgm-tecnologia.vercel.app",
         logo: "https://bgm-tecnologia.vercel.app/logo.svg",
-        description: "Desenvolvimento web especializado em soluções modernas",
-        founder: {
-          "@id": "https://bgm-tecnologia.vercel.app/#person",
-        },
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+55-21-99870-8634",
-          email: "bruno.mulim.prog@gmail.com",
-          contactType: "customer service",
-          availableLanguage: "Portuguese",
-        },
+        description:
+          "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
         service: [
           {
             "@type": "Service",
-            name: "Desenvolvimento Web",
-            description: "Criação de websites e aplicações web modernas",
+            name: "Desenvolvimento Web & Mobile",
+            description:
+              "Aplicações modernas e responsivas para web e dispositivos móveis",
           },
           {
             "@type": "Service",
-            name: "Consultoria Técnica",
-            description: "Assessoria em tecnologia e arquitetura de sistemas",
+            name: "APIs & Dashboards",
+            description:
+              "Desenvolvimento de APIs RESTful e dashboards interativos para gestão de dados",
           },
         ],
       },
@@ -171,8 +139,8 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": "https://bgm-tecnologia.vercel.app/#website",
         url: "https://bgm-tecnologia.vercel.app",
-        name: "BGM Tecnologia Web",
-        description: "Portfólio e serviços de desenvolvimento web",
+        name: "Corelayer",
+        description: "Arquitetura limpa, entrega previsível",
         publisher: {
           "@id": "https://bgm-tecnologia.vercel.app/#organization",
         },
@@ -182,8 +150,18 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 'light';
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -192,11 +170,10 @@ export default function RootLayout({
       <body
         className={clsx(
           `${geistSans.variable} ${geistMono.variable} antialiased`,
-          "text-foreground bg-black/80",
+          "text-foreground bg-background",
         )}
       >
-        <Header />
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

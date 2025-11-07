@@ -1,0 +1,15 @@
+<svg width="720" height="140" viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Corelayer horizontal (light)">
+  <defs>
+    <style>
+      .title { font: 800 44px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; letter-spacing: -0.02em; }
+    </style>
+  </defs>
+  <!-- Compact icon (three layers) -->
+  <g transform="translate(8,26)">
+    <rect x="0"  y="0"  rx="6" ry="6" width="88" height="22" fill="#1B6AFF"/>
+    <rect x="9"  y="26" rx="6" ry="6" width="70" height="22" fill="#2780FF"/>
+    <rect x="18" y="52" rx="6" ry="6" width="52" height="22" fill="#3B8CFF"/>
+  </g>
+  <!-- Wordmark for dark backgrounds -->
+  <text x="124" y="84" class="title" fill="#FFFFFF">CORELAYER</text>
+</svg>
