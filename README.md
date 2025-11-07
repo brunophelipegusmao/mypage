@@ -1,12 +1,12 @@
-# 🌐 BGM Tecnologia Web - Portfólio
+# 🌐 Corelayer - Arquitetura limpa, entrega previsível
 
 ## 📋 Sobre o Projeto
 
-Site pessoal e portfólio profissional do desenvolvedor **Bruno Gusmão Mulim**, especializado em desenvolvimento Full Stack. Este projeto foi construído com as mais modernas tecnologias web para demonstrar competências técnicas e apresentar serviços de desenvolvimento.
+Site profissional da **Corelayer**, especializada em desenvolvimento de sistemas sob medida para web e mobile. Este projeto foi construído com as mais modernas tecnologias web, do planejamento ao deploy, com foco em performance, DX e qualidade de produção.
 
 ### 🎯 Objetivo
 
-Criar uma presença digital profissional que apresente serviços, projetos e facilite o contato com potenciais clientes e parceiros.
+Criar uma presença digital profissional que apresente serviços, portfólio e facilite o contato com potenciais clientes e parceiros.
 
 ---
 
@@ -21,13 +21,14 @@ Criar uma presença digital profissional que apresente serviços, projetos e fac
 ### **Estilização**
 
 - **[Tailwind CSS v4](https://tailwindcss.com/)** - Framework CSS utility-first
-- **CSS Custom Properties** - Tema personalizado com paleta de cores específica
+- **CSS Custom Properties** - Sistema de tema claro/escuro dinâmico
 - **Animações CSS** - Sistema de animações personalizadas
 
 ### **Funcionalidades**
 
 - **[EmailJS](https://www.emailjs.com/)** - Envio de emails direto do frontend
 - **[Next.js Image](https://nextjs.org/docs/api-reference/next/image)** - Otimização automática de imagens
+- **Theme Switcher** - Alternância entre tema claro e escuro
 - **Responsive Design** - Layout adaptável para todos os dispositivos
 
 ### **Desenvolvimento**
@@ -40,22 +41,39 @@ Criar uma presença digital profissional que apresente serviços, projetos e fac
 
 ## 🎨 Design e Tema
 
-### **Paleta de Cores**
+### **Paleta de Cores Corelayer**
 
 ```css
---primary: #049dd9 /* Azul claro - elementos principais */ --secondary: #140126
-  /* Roxo escuro - elementos secundários */ --accent: #4a1fa6
-  /* Roxo médio - destaques */ --card: #3658bf /* Azul roxo - containers */
-  --background: #000000 /* Preto - fundo principal */ --foreground: #ffffff
-  /* Branco - texto principal */;
+/* Tema Claro (Padrão) */
+--primary: #1B6AFF       /* Azul primário */
+--secondary: #F5F5F7     /* Cinza claro */
+--background: #FFFFFF    /* Fundo branco */
+--foreground: #0E0E10    /* Texto escuro */
+--card: #F5F5F7          /* Cards cinza claro */
+--accent: #2780FF        /* Azul accent */
+
+/* Tema Escuro */
+--primary: #1B6AFF       /* Azul primário (consistente) */
+--secondary: #252529     /* Cinza escuro */
+--background: #0E0E10    /* Fundo escuro */
+--foreground: #FFFFFF    /* Texto claro */
+--card: #1A1A1D          /* Cards escuro */
+--accent: #2780FF        /* Azul accent */
+
+/* Gradientes de Azul */
+--blue-1: #1B6AFF
+--blue-2: #2780FF
+--blue-3: #3B8CFF
 ```
 
-### **Características visuais**
+### **Características Visuais**
 
-- 🌙 **Tema escuro** como padrão
+- ☀️ **Tema claro** como padrão
+- 🌙 **Tema escuro** opcional com toggle animado
 - ✨ **Animações suaves** com delays progressivos
 - 📱 **Design responsivo** mobile-first
 - 🎯 **Foco na experiência do usuário**
+- 💾 **Preferência de tema salva** no localStorage
 
 ---
 
@@ -66,7 +84,7 @@ src/
 ├── app/                    # App Router (Next.js 13+)
 │   ├── layout.tsx         # Layout raiz da aplicação
 │   ├── page.tsx           # Página inicial
-│   ├── globals.css        # Estilos globais e tema
+│   ├── globals.css        # Estilos globais e temas
 │   ├── portfolio/         # Página do portfólio
 │   ├── services/          # Página de serviços
 │   ├── contact/           # Página de contato
@@ -74,12 +92,16 @@ src/
 ├── components/            # Componentes reutilizáveis
 │   ├── Button/           # Sistema de botões
 │   ├── Card/             # Componentes de card
+│   ├── ClientLayout/     # Wrapper cliente para tema
 │   ├── ContactForm/      # Formulário de contato
 │   ├── Header/           # Cabeçalho responsivo
 │   ├── Input/            # Campos de formulário
 │   ├── ProjectCard/      # Cards de projeto
 │   ├── ServiceCard/      # Cards de serviço
+│   ├── ThemeToggle/      # Botão de alternância de tema
 │   └── index.tsx         # Exports centralizados
+├── contexts/              # React Contexts
+│   └── ThemeContext.tsx  # Gerenciamento de tema
 ├── lib/                  # Utilitários e configurações
 │   ├── utils.ts          # Funções utilitárias
 │   └── emailjs-config.ts # Configuração EmailJS
@@ -183,9 +205,10 @@ Se o EmailJS falhar, o sistema automaticamente abre o cliente de email padrão d
 
 ### **🏠 Página Inicial**
 
-- Hero section com apresentação
-- Cards de serviços oferecidos
-- Navegação responsiva
+- Hero section com slogan "Arquitetura limpa, entrega previsível"
+- Cards de serviços (Desenvolvimento Web & Mobile, APIs & Dashboards)
+- Navegação responsiva com logo SVG animado
+- Toggle de tema claro/escuro
 - Animações de entrada
 
 ### **💼 Portfólio**
@@ -197,9 +220,9 @@ Se o EmailJS falhar, o sistema automaticamente abre o cliente de email padrão d
 
 ### **🛠️ Serviços**
 
-- Lista detalhada de serviços oferecidos
-- Cards com features de cada serviço
-- Layout responsivo
+- Desenvolvimento Web & Mobile
+- APIs RESTful e dashboards interativos
+- Layout responsivo com cards
 
 ### **📞 Contato**
 
@@ -209,12 +232,22 @@ Se o EmailJS falhar, o sistema automaticamente abre o cliente de email padrão d
 - Links para redes sociais
 - Validação de campos em tempo real
 
+### **🎨 Sistema de Tema**
+
+- ☀️ Tema claro padrão
+- 🌙 Modo escuro opcional
+- 🔄 Toggle animado com ícones sol/lua
+- 💾 Preferência salva no localStorage
+- ⚡ Prevenção de flash ao carregar
+- 🎯 Suporte SSR sem hydration mismatch
+
 ### **📱 Responsividade**
 
 - Design mobile-first
 - Menu hamburger para dispositivos móveis
 - Breakpoints otimizados
 - Imagens responsivas
+- Toggle de tema acessível em mobile e desktop
 
 ---
 
@@ -223,8 +256,15 @@ Se o EmailJS falhar, o sistema automaticamente abre o cliente de email padrão d
 ### **Header**
 
 ```tsx
-// Cabeçalho responsivo com navegação
+// Cabeçalho responsivo com logo SVG e toggle de tema
 <Header />
+```
+
+### **ThemeToggle**
+
+```tsx
+// Botão de alternância de tema claro/escuro
+<ThemeToggle />
 ```
 
 ### **ProjectCard**
@@ -254,6 +294,13 @@ Se o EmailJS falhar, o sistema automaticamente abre o cliente de email padrão d
 <Button variant="primary" size="lg" href="/contact">
   Entre em Contato
 </Button>
+```
+
+### **ClientLayout**
+
+```tsx
+// Wrapper cliente para ThemeProvider e Header
+<ClientLayout>{children}</ClientLayout>
 ```
 
 ---
@@ -299,57 +346,56 @@ npm run lint     # Análise de código com ESLint
 - ⚡ **Next.js App Router** para roteamento otimizado
 - 🖼️ **Next.js Image** para otimização automática de imagens
 - 📱 **Responsive Design** para todos os dispositivos
-- 🎨 **CSS otimizado** com Tailwind CSS
+- 🎨 **CSS otimizado** com Tailwind CSS v4
 - ⚡ **Loading states** para melhor UX
 - 🔍 **Meta tags** otimizadas para SEO
+- 🌓 **Sistema de tema** sem flash de conteúdo
+- 💾 **LocalStorage** para persistência de preferências
+- 🎯 **Favicons SVG** adaptados ao tema (claro/escuro)
 
 ---
 
-## 🚀 Deploy
+## 🎨 Branding Corelayer
 
-### **Vercel (Recomendado)**
+### **Logo**
 
-```bash
-# Conecte o repositório GitHub à Vercel
-# O deploy acontece automaticamente
-```
+- SVG inline com 3 camadas horizontais
+- Gradiente azul (#1B6AFF, #2780FF, #3B8CFF)
+- Animação de hover com escala
+- Responsivo (12x12 mobile, 16x16 desktop)
 
-### **Netlify**
+### **Favicon**
 
-```bash
-npm run build
-# Upload da pasta 'out' para Netlify
-```
+- Versões dark e light adaptadas ao tema
+- "CL" tipográfico + 3 barras em gradiente
+- 256x256px em SVG
 
-### **Servidor próprio**
+### **Identidade Visual**
 
-```bash
-npm run build
-npm run start
-# Configure reverse proxy (nginx)
-```
+- Tipografia: System UI / Geist Sans
+- Peso: 700 (bold) para logo e títulos
+- Espaçamento: Consistente com Tailwind scale
+- Border radius: 0.625rem padrão
 
 ---
 
 ## 📞 Contato
 
-- **Email:** bruno.mulim.prog@gmail.com
-- **LinkedIn:** [/in/bruno-mulim](https://www.linkedin.com/in/bruno-mulim/)
-- **GitHub:** [/bmulim](https://github.com/bmulim)
-- **Instagram:** [@brunopmulim](https://instagram.com/brunopmulim)
+- **Website:** [corelayer.com](https://bgm-tecnologia.vercel.app)
+- **Email:** contato@corelayer.com
 
 ---
 
 ## 📝 Licença
 
-Este projeto é **privado** e de propriedade de Bruno Gusmão Mulim. Todos os direitos reservados.
+Este projeto é **privado** e de propriedade da Corelayer. Todos os direitos reservados.
 
 ---
 
 ## 🤝 Contribuições
 
-Este é um projeto pessoal, mas sugestões e feedbacks são sempre bem-vindos! Entre em contato pelos canais mencionados acima.
+Este é um projeto corporativo, mas sugestões e feedbacks são sempre bem-vindos! Entre em contato pelos canais mencionados acima.
 
 ---
 
-**🌟 BGM Tecnologia Web - Transformando ideias em soluções digitais**
+**🌟 Corelayer - Arquitetura limpa, entrega previsível**
