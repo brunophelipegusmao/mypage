@@ -38,7 +38,7 @@ export default function PortfolioPage() {
       ],
       image: "/covers/jmstudio.svg",
       placeholderImage: "/covers/jmstudio.svg",
-      projectUrl: "https://jm-bmstudiofitness.vercel.app",
+      projectUrl: "https://jmstudiofitness.com.b",
       githubUrl: "https://github.com/bmulim/jm-bmstudiofitness",
     },
   ];
