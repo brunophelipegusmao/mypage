@@ -3,25 +3,44 @@ import { Metadata } from "next";
 import { ProjectCard } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Portfólio - BGM Tecnologia Web | Projetos Desenvolvidos",
+  title: "Portfólio - Corelayer | Projetos Desenvolvidos",
   description:
-    "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim. Sistemas web completos, aplicações modernas com Next.js, React e TypeScript.",
+    "Conheça os projetos desenvolvidos pela Corelayer. Sistemas web completos, e-commerce, aplicações modernas com Next.js, React e TypeScript.",
   keywords:
-    "portfólio, projetos web, next.js, react, typescript, sistema academia, desenvolvimento full stack",
+    "portfólio, projetos web, next.js, react, typescript, e-commerce, sistema academia, desenvolvimento full stack",
   openGraph: {
-    title: "Portfólio - BGM Tecnologia Web",
-    description: "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim",
+    title: "Portfólio - Corelayer",
+    description: "Conheça os projetos desenvolvidos pela Corelayer",
     url: "https://bgm-tecnologia.vercel.app/portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfólio - BGM Tecnologia Web",
-    description: "Conheça os projetos desenvolvidos por Bruno Gusmão Mulim",
+    title: "Portfólio - Corelayer",
+    description: "Conheça os projetos desenvolvidos pela Corelayer",
   },
 };
 
 export default function PortfolioPage() {
   const projects = [
+    {
+      title: "JM Store - E-commerce de Suplementos",
+      description:
+        "Loja online completa para venda de suplementos alimentares com catálogo de 500+ produtos, sistema de categorias, carrinho de compras, avaliações de clientes e gestão de pedidos. Interface moderna e responsiva com foco em conversão.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Tailwind CSS",
+        "Shadcn/ui",
+        "Auth.js",
+      ],
+      image: "/covers/jmstore.svg",
+      placeholderImage: "/covers/jmstore.svg",
+      projectUrl: "https://ecommerce-jm-6l3x.vercel.app/",
+      githubUrl: "https://github.com/bmulim/ecommerce-jm",
+    },
     {
       title: "JM Studio Fitness - Sistema de Gerenciamento de Academia",
       description:
