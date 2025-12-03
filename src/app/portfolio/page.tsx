@@ -42,6 +42,41 @@ export default function PortfolioPage() {
       githubUrl: "https://github.com/bmulim/ecommerce-jm",
     },
     {
+      title: "Navarro Advocacia - Website Institucional",
+      description:
+        "Website institucional moderno para escritório de advocacia especializado em Direito Empresarial, Civil e Trabalhista. Blog jurídico com sistema de gestão de conteúdo, painel administrativo completo e integração com modo dark/light.",
+      technologies: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "NestJS",
+        "Tailwind CSS 4",
+        "Turbopack",
+        "SSG",
+      ],
+      image: "/navarro.png",
+      placeholderImage: "/navarro.png",
+      projectUrl: "https://navarro-adv.vercel.app/",
+      githubUrl: "https://github.com/bmulim/navarro_adv",
+    },
+    {
+      title: "daCoach Confeitaria Fina - E-commerce Artesanal",
+      description:
+        "Website institucional para confeitaria artesanal com catálogo de produtos (doces e salgados), integração direta com WhatsApp, painel administrativo para gestão de produtos e categorias. Design elegante com animações fluidas.",
+      technologies: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "Turbopack",
+      ],
+      image: "/dacoachsimp.png",
+      placeholderImage: "/dacoachsimp.png",
+      projectUrl: "https://dacoach-confeitariafina.vercel.app/",
+      githubUrl: "https://github.com/bmulim/dacoach-confeitariafina",
+    },
+    {
       title: "JM Studio Fitness - Sistema de Gerenciamento de Academia",
       description:
         "Sistema completo de gerenciamento para academias com controle de alunos, check-ins automáticos, gestão financeira e dashboards administrativos. Inclui 3 tipos de usuário (Admin, Professor, Aluno) com sistema de permissões robusto.",
