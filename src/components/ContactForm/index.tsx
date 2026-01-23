@@ -1,10 +1,10 @@
 "use client";
 
+import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 
-import emailjs from "@emailjs/browser";
-
 import { EMAILJS_CONFIG } from "@/lib/emailjs-config";
+
 import { Button } from "../Button";
 import { Card, CardContent, CardHeader, CardTitle } from "../Card";
 import { Input, Textarea } from "../Input";
