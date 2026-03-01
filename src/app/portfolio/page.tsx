@@ -73,8 +73,8 @@ export default function PortfolioPage() {
       ],
       image: "/ChatGPT Image 12 de nov. de 2025, 09_34_50.png",
       placeholderImage: "/ChatGPT Image 12 de nov. de 2025, 09_34_50.png",
-      projectUrl: "https://ecommerce-jm-6l3x.vercel.app/",
-      githubUrl: "https://github.com/bmulim/ecommerce-jm",
+      projectUrl: "https://ecommerce-jm.vercel.app/",
+      githubUrl: "https://github.com/brunophelipegusmao/ecommerce-jm",
     },
     {
       title: "Navarro Advocacia - Website Institucional",
