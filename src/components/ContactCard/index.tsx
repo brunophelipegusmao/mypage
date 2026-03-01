@@ -1,8 +1,12 @@
+import type { ReactNode } from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "../Card";
 
 export interface ContactInfoProps {
-  icon: string;
+  icon: ReactNode;
   label: string;
+  href?: string;
+  target?: "_blank" | "_self";
 }
 
 export interface AvailabilityProps {
@@ -30,15 +34,37 @@ export function ContactInfoCard({
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {contacts.map((contact, index) => (
-            <div
-              key={index}
-              className="hover:text-primary flex items-center transition-colors duration-300"
-            >
-              <span className="text-primary mr-3">{contact.icon}</span>
-              <span>{contact.label}</span>
-            </div>
-          ))}
+          {contacts.map((contact, index) => {
+            const content = (
+              <>
+                <span className="text-primary mr-3">{contact.icon}</span>
+                <span>{contact.label}</span>
+              </>
+            );
+
+            if (contact.href) {
+              return (
+                <a
+                  key={index}
+                  href={contact.href}
+                  target={contact.target ?? "_blank"}
+                  rel="noopener noreferrer"
+                  className="hover:text-primary flex items-center transition-colors duration-300"
+                >
+                  {content}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={index}
+                className="hover:text-primary flex items-center transition-colors duration-300"
+              >
+                {content}
+              </div>
+            );
+          })}
         </div>
       </CardContent>
     </Card>
