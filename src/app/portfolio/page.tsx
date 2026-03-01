@@ -163,7 +163,7 @@ export default function PortfolioPage() {
           <span className="text-primary text-xs tracking-[0.18em] uppercase">
             Projetos e execução
           </span>
-          <h1 className="mt-3 text-balance text-4xl leading-tight font-bold md:text-5xl">
+          <h1 className="mt-3 text-4xl leading-tight font-bold text-balance md:text-5xl">
             Portfólio com foco em produto, performance e escalabilidade.
           </h1>
           <p className="text-foreground/75 mt-4 max-w-3xl text-base md:text-lg">
