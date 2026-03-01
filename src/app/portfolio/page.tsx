@@ -23,6 +23,37 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   const projects = [
     {
+      title: "Chronos Pomodoro - Timer de Produtividade",
+      description:
+        "Aplicação de técnica Pomodoro para gestão de foco e produtividade, com controle de ciclos, histórico de sessões e navegação entre páginas em SPA. Interface limpa e responsiva para uso diário.",
+      technologies: [
+        "React 19",
+        "TypeScript",
+        "Vite 7",
+        "React Router 7",
+        "date-fns",
+        "Lucide React",
+      ],
+      projectUrl: "https://chronos-pomodoro-jade.vercel.app",
+      githubUrl: "https://github.com/brunophelipegusmao/chronos-pomodoro",
+    },
+    {
+      title: "Aura Frontend - Plataforma Web",
+      description:
+        "Frontend moderno desenvolvido com foco em experiência fluida de navegação, transições de página e interface responsiva. Projeto construído com stack atual do ecossistema React e Next.js.",
+      technologies: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "MUI 7",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "Swup",
+      ],
+      projectUrl: "https://aura-frontend-lovat.vercel.app",
+      githubUrl: "https://github.com/brunophelipegusmao/aura-frontend",
+    },
+    {
       title: "JM Store - E-commerce de Suplementos",
       description:
         "Loja online completa para venda de suplementos alimentares com catálogo de 500+ produtos, sistema de categorias, carrinho de compras, avaliações de clientes e gestão de pedidos. Interface moderna e responsiva com foco em conversão.",
