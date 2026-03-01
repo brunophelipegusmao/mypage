@@ -15,9 +15,12 @@ export interface ButtonProps {
 }
 
 const buttonVariants = {
-  primary: "bg-primary text-primary-foreground hover:shadow-primary/20",
-  secondary: "bg-secondary text-secondary-foreground hover:shadow-secondary/20",
-  muted: "bg-muted text-muted-foreground hover:bg-muted/80",
+  primary:
+    "border border-primary/40 bg-linear-to-r from-primary to-primary/75 text-primary-foreground hover:shadow-[0_0_32px_rgba(27,106,255,0.45)]",
+  secondary:
+    "border border-white/20 bg-white/6 text-secondary-foreground hover:bg-white/12 hover:shadow-[0_0_24px_rgba(255,255,255,0.12)]",
+  muted:
+    "border border-border bg-muted/60 text-muted-foreground hover:bg-muted/85",
 };
 
 const buttonSizes = {
@@ -37,10 +40,10 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const baseClasses = clsx(
-    "font-semibold rounded-lg transition-all duration-300",
-    "hover:scale-105 hover:shadow-lg transform",
-    "focus:outline-none focus:ring-2 focus:ring-offset-2",
-    "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+    "transform rounded-xl font-semibold transition-all duration-300",
+    "hover:-translate-y-0.5 hover:scale-[1.01]",
+    "focus:ring-primary/45 focus:ring-2 focus:outline-none",
+    "disabled:cursor-not-allowed disabled:opacity-50 disabled:transform-none",
     buttonVariants[variant],
     buttonSizes[size],
     className,

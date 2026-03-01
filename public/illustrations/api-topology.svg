@@ -1,0 +1,76 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitetura de APIs com nós conectados">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="20" x2="850" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D121D" />
+      <stop offset="1" stop-color="#111826" />
+    </linearGradient>
+    <linearGradient id="node" x1="192" y1="224" x2="768" y2="426" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B6AFF" stop-opacity="0.27" />
+      <stop offset="1" stop-color="#65A6FF" stop-opacity="0.16" />
+    </linearGradient>
+    <linearGradient id="line" x1="194" y1="324" x2="760" y2="324" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F93FF" />
+      <stop offset="1" stop-color="#B8D7FF" />
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(474 320) rotate(90) scale(250 380)">
+      <stop stop-color="#1B6AFF" stop-opacity="0.3" />
+      <stop offset="1" stop-color="#1B6AFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect x="20" y="20" width="920" height="600" rx="36" fill="url(#bg)" />
+  <rect x="20" y="20" width="920" height="600" rx="36" stroke="#1D2A44" stroke-width="2" />
+  <rect x="20" y="20" width="920" height="600" rx="36" fill="url(#halo)" />
+
+  <g opacity="0.95">
+    <line x1="474" y1="320" x2="258" y2="194" stroke="url(#line)" stroke-width="4" />
+    <line x1="474" y1="320" x2="258" y2="446" stroke="url(#line)" stroke-width="4" />
+    <line x1="474" y1="320" x2="700" y2="194" stroke="url(#line)" stroke-width="4" />
+    <line x1="474" y1="320" x2="700" y2="446" stroke="url(#line)" stroke-width="4" />
+    <line x1="474" y1="320" x2="474" y2="140" stroke="url(#line)" stroke-width="4" />
+    <line x1="474" y1="320" x2="474" y2="500" stroke="url(#line)" stroke-width="4" />
+  </g>
+
+  <g>
+    <rect x="394" y="252" width="160" height="136" rx="20" fill="url(#node)" stroke="#4C87E6" stroke-width="2" />
+    <text x="474" y="302" text-anchor="middle" fill="#E5F0FF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">API Gateway</text>
+    <rect x="430" y="320" width="88" height="28" rx="8" fill="#173F7A" />
+    <text x="474" y="339" text-anchor="middle" fill="#91BEFF" font-family="system-ui, sans-serif" font-size="13" font-weight="600">NestJS</text>
+  </g>
+
+  <g>
+    <rect x="194" y="144" width="128" height="96" rx="16" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="258" y="185" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Auth</text>
+    <text x="258" y="207" text-anchor="middle" fill="#7FB1FF" font-family="system-ui, sans-serif" font-size="12">Better Auth</text>
+  </g>
+
+  <g>
+    <rect x="194" y="398" width="128" height="96" rx="16" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="258" y="439" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Data</text>
+    <text x="258" y="461" text-anchor="middle" fill="#7FB1FF" font-family="system-ui, sans-serif" font-size="12">Drizzle ORM</text>
+  </g>
+
+  <g>
+    <rect x="636" y="144" width="128" height="96" rx="16" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="700" y="185" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Frontend</text>
+    <text x="700" y="207" text-anchor="middle" fill="#7FB1FF" font-family="system-ui, sans-serif" font-size="12">Next.js</text>
+  </g>
+
+  <g>
+    <rect x="636" y="398" width="128" height="96" rx="16" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="700" y="439" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Database</text>
+    <text x="700" y="461" text-anchor="middle" fill="#7FB1FF" font-family="system-ui, sans-serif" font-size="12">PostgreSQL</text>
+  </g>
+
+  <g>
+    <rect x="410" y="86" width="128" height="80" rx="14" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="474" y="124" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Observability</text>
+  </g>
+
+  <g>
+    <rect x="410" y="472" width="128" height="80" rx="14" fill="#0F203C" stroke="#3C6BB5" />
+    <text x="474" y="510" text-anchor="middle" fill="#DDEBFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">CI / Deploy</text>
+  </g>
+
+  <circle cx="474" cy="320" r="10" fill="#D8E9FF" />
+</svg>

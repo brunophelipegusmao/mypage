@@ -9,8 +9,9 @@ export interface CardProps {
 }
 
 const cardVariants = {
-  default: "bg-card text-card-foreground border-border",
-  muted: "bg-muted text-muted-foreground",
+  default:
+    "bg-card/70 text-card-foreground border border-white/10 shadow-[0_16px_44px_rgba(0,0,0,0.25)] backdrop-blur-sm",
+  muted: "bg-muted/60 text-muted-foreground border border-white/8",
 };
 
 export function Card({
@@ -21,12 +22,12 @@ export function Card({
   variant = "default",
 }: CardProps) {
   const cardClasses = clsx(
-    "rounded-lg border p-6 transition-all duration-300",
+    "rounded-2xl p-6 transition-all duration-300",
     cardVariants[variant],
     {
-      "hover:scale-105 hover:shadow-xl hover:shadow-card/20 group":
+      "group hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(27,106,255,0.2)]":
         hover && variant === "default",
-      "hover:bg-muted/80 hover:scale-105": hover && variant === "muted",
+      "hover:bg-muted/75 hover:-translate-y-1": hover && variant === "muted",
     },
     animation,
     className,

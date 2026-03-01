@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bgm-tecnologia.vercel.app"),
   title: {
-    default: "Corelayer - Arquitetura limpa, entrega previsível",
+    default: "Corelayer - Análise de sistemas, entrega previsível",
     template: "%s | Corelayer",
   },
   description:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "Business",
   openGraph: {
-    title: "Corelayer - Arquitetura limpa, entrega previsível",
+    title: "Corelayer - Análise de sistemas, entrega previsível",
     description:
       "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
     url: "https://bgm-tecnologia.vercel.app",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Corelayer - Arquitetura limpa, entrega previsível",
+    title: "Corelayer - Análise de sistemas, entrega previsível",
     description:
       "Sistemas sob medida para web e mobile com foco em performance e qualidade.",
     creator: "@corelayer",
@@ -140,7 +140,7 @@ export default function RootLayout({
         "@id": "https://bgm-tecnologia.vercel.app/#website",
         url: "https://bgm-tecnologia.vercel.app",
         name: "Corelayer",
-        description: "Arquitetura limpa, entrega previsível",
+        description: "Análise de sistemas, entrega previsível",
         publisher: {
           "@id": "https://bgm-tecnologia.vercel.app/#organization",
         },

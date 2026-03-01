@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 import {
   AvailabilityCard,
@@ -9,20 +10,20 @@ import {
 } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Contato - BGM Tecnologia Web | Entre em Contato",
+  title: "Contato - Corelayer | Entre em Contato",
   description:
     "Entre em contato com Bruno Gusmão Mulim para projetos de desenvolvimento web, consultoria técnica e soluções personalizadas. Resposta em até 24 horas.",
   keywords:
     "contato, bruno mulim, desenvolvedor, consultoria, orçamento, projeto web, desenvolvimento",
   openGraph: {
-    title: "Contato - BGM Tecnologia Web",
+    title: "Contato - Corelayer",
     description:
       "Entre em contato para projetos e consultoria em desenvolvimento web",
     url: "https://bgm-tecnologia.vercel.app/contact",
   },
   twitter: {
     card: "summary",
-    title: "Contato - BGM Tecnologia Web",
+    title: "Contato - Corelayer",
     description:
       "Entre em contato para projetos e consultoria em desenvolvimento web",
   },
@@ -64,19 +65,59 @@ export default function ContactPage() {
     },
   ];
 
+  const stackTags = [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "NestJS",
+    "Drizzle ORM",
+    "Framer Motion",
+  ];
+
   return (
-    <main className="bg-background text-foreground min-h-screen px-4 py-8">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-primary fade-in mb-8 text-center text-4xl font-bold">
-          Entre em Contato
-        </h1>
+    <main className="bg-background text-foreground tech-page min-h-screen px-4 py-10 md:py-14">
+      <div className="mx-auto max-w-6xl">
+        <section className="tech-panel animate-fade-in mb-10 md:mb-12">
+          <span className="text-primary text-xs tracking-[0.18em] uppercase">
+            Contato
+          </span>
+          <h1 className="mt-3 text-balance text-4xl leading-tight font-bold md:text-5xl">
+            Vamos construir seu próximo produto digital.
+          </h1>
+          <p className="text-foreground/75 mt-4 max-w-3xl text-base md:text-lg">
+            Compartilhe o contexto do seu projeto. Atuo sozinho como Analista de
+            Sistemas e Desenvolvedor, com foco em clareza técnica,
+            previsibilidade e entrega em produção.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {stackTags.map((tag) => (
+              <span key={tag} className="tech-chip">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </section>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Formulário de Contato */}
-          <ContactForm animation="fade-in-up animate-delay-200" />
+        <section className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <ContactForm animation="animate-fade-in-up animate-delay-200" />
 
-          {/* Informações de Contato */}
-          <div className="fade-in-up animate-delay-400 space-y-6">
+          <div className="animate-fade-in-up animate-delay-400 space-y-6">
+            <article className="tech-panel">
+              <div className="overflow-hidden rounded-xl border border-white/10">
+                <Image
+                  src="/illustrations/mobile-cloud.svg"
+                  alt="Fluxo de aplicação mobile conectada a APIs e integrações em nuvem"
+                  width={960}
+                  height={640}
+                  className="h-44 w-full object-cover"
+                />
+              </div>
+              <p className="text-foreground/80 mt-3 text-sm">
+                Desenvolvimento full stack para web, mobile e backend em uma
+                única estratégia de entrega.
+              </p>
+            </article>
+
             <ContactInfoCard contacts={contactInfo} />
 
             <AvailabilityCard
@@ -86,7 +127,7 @@ export default function ContactPage() {
 
             <SocialLinksCard links={socialLinks} />
           </div>
-        </div>
+        </section>
       </div>
     </main>
   );
