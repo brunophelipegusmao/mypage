@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bgm-tecnologia.vercel.app"),
+  applicationName: "Corelayer",
   title: {
     default: "Corelayer - Análise de sistemas, entrega previsível",
     template: "%s | Corelayer",
@@ -82,8 +83,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://bgm-tecnologia.vercel.app",
   },
+  manifest: "/pwa/manifest.webmanifest",
   icons: {
     icon: [
+      {
+        url: "/web/favicon.ico",
+        sizes: "48x48",
+        type: "image/x-icon",
+      },
+      {
+        url: "/web/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/web/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
       {
         url: "/favicon-dark.svg",
         type: "image/svg+xml",
@@ -95,10 +112,17 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: light)",
       },
     ],
-    apple: "/icon-192x192.png",
-    shortcut: "/favicon-dark.svg",
+    apple: [
+      {
+        url: "/web/apple-touch-icon-180x180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/web/favicon.ico",
   },
   other: {
+    "mobile-web-app-capable": "yes",
     "msapplication-TileColor": "#1B6AFF",
     "theme-color": "#1B6AFF",
   },
