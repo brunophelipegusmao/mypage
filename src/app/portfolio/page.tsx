@@ -59,6 +59,24 @@ const projects = [
     githubUrl: "https://github.com/brunophelipegusmao/aura-frontend",
   },
   {
+    title: "Corelayer App - Réplica em Angular",
+    description:
+      "Réplica do projeto Corelayer reescrita em Angular com SSR, componentes reutilizáveis e integração de contato com EmailJS.",
+    technologies: [
+      "Angular 21",
+      "TypeScript 5.9",
+      "Angular SSR",
+      "RxJS 7",
+      "Tailwind CSS 4",
+      "Express 5",
+      "EmailJS",
+      "Lucide Angular",
+    ],
+    image: "/covers/default-cover.svg",
+    placeholderImage: "/covers/default-cover.svg",
+    githubUrl: "https://github.com/brunophelipegusmao/corelayer-app",
+  },
+  {
     title: "JM Store - E-commerce de Suplementos",
     description:
       "Loja online com catálogo de 500+ produtos, carrinho, avaliações e fluxo de compra orientado a conversão.",
@@ -135,12 +153,14 @@ const projects = [
 
 const stackTags = [
   "Next.js",
+  "Angular",
   "React",
   "TypeScript",
   "Tailwind CSS",
   "Framer Motion",
   "NestJS",
   "Drizzle ORM",
+  "RxJS",
   "PostgreSQL",
   "Better Auth",
   "React Native",
