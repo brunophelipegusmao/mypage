@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import PWAInstallButton from "@/components/PWAInstallButton";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
@@ -87,10 +88,12 @@ export default function Header() {
               })}
             </ul>
           </nav>
+          <PWAInstallButton />
           <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <PWAInstallButton />
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
