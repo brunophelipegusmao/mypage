@@ -17,25 +17,25 @@ import Button from "@/components/Button";
 
 const highlights = [
   {
-    label: "Repositórios públicos",
-    value: "20+",
+    label: "Direção da base",
+    value: "Next.js full-stack",
     icon: Boxes,
   },
   {
-    label: "Stack full cycle",
-    value: "Web + Mobile + API",
+    label: "Foco imediato",
+    value: "Clareza e manutenção",
     icon: Workflow,
   },
   {
-    label: "Foco de entrega",
-    value: "Performance e DX",
+    label: "Próximo passo",
+    value: "Site, blog e dashboard",
     icon: Rocket,
   },
 ];
 
 const techGroups = [
   {
-    title: "Frontend",
+    title: "Base atual",
     icon: Code2,
     items: [
       "Next.js 16",
@@ -43,30 +43,32 @@ const techGroups = [
       "TypeScript",
       "Tailwind CSS 4",
       "Framer Motion",
-      "MUI 7",
-      "Swup",
+      "App Router",
+      "Metadata API",
     ],
   },
   {
-    title: "Backend e Dados",
+    title: "Conteúdo e SEO",
     icon: Database,
     items: [
-      "NestJS",
-      "Drizzle ORM",
-      "PostgreSQL",
-      "Better Auth",
-      "JWT",
-      "Zod",
+      "Metadata consistente",
+      "Open Graph",
+      "Twitter Cards",
+      "robots.ts",
+      "sitemap.ts",
+      "Canonical limpo",
     ],
   },
   {
-    title: "Mobile e Automação",
+    title: "Evolução da plataforma",
     icon: Smartphone,
     items: [
-      "React Native",
-      "React Navigation",
-      "n8n Workflows",
-      "Integrações com APIs",
+      "Blog público",
+      "Dashboard privado",
+      "Login e senha",
+      "Neon",
+      "Drizzle ORM",
+      "Vercel",
     ],
   },
 ];
@@ -74,15 +76,15 @@ const techGroups = [
 const deliveryFlow = [
   {
     title: "Análise de Requisitos",
-    description: "Mapeamento de domínio, riscos e prioridades de produto.",
+    description: "Revisão da base real, corte de contradições e definição do próximo passo com escopo claro.",
   },
   {
     title: "Construção",
-    description: "Implementação incremental com foco em legibilidade e escala.",
+    description: "Implementação incremental em Next.js, priorizando simplicidade operacional e manutenção.",
   },
   {
     title: "Operação",
-    description: "Deploy, observabilidade e ajustes orientados por uso real.",
+    description: "Publicação em um único deploy, revisão técnica contínua e ajustes guiados por uso real.",
   },
 ];
 
@@ -130,15 +132,16 @@ export default function HomeExperience() {
               }
             >
               <h1 className="text-balance text-4xl leading-tight font-bold md:text-5xl">
-                Produto digital com
-                <span className="text-gradient-primary"> visual moderno</span>,
-                análise técnica e stack real de produção.
+                Base enxuta para um
+                <span className="text-gradient-primary"> produto pessoal</span>
+                , com direção técnica clara desde o início.
               </h1>
 
               <p className="text-foreground/75 mt-6 max-w-2xl text-lg leading-relaxed">
-                Atuo de forma independente como Analista de Sistemas e
-                Desenvolvedor, criando sistemas web, mobile e APIs com foco em
-                performance, manutenção e experiência de uso.
+                Este projeto apresenta meu trabalho em engenharia de produto e
+                sistemas. A base pública já nasce em Next.js e está sendo limpa
+                para evoluir com conteúdo, área privada e ferramentas internas
+                sem arquitetura cosmética.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -209,11 +212,11 @@ export default function HomeExperience() {
       >
         <div className="mb-8">
           <h2 className="text-3xl font-bold">
-            Stack que eu uso nos meus repositórios
+            Estrutura que guia esta base
           </h2>
           <p className="text-foreground/70 mt-3">
-            Tecnologias aplicadas nos projetos que mantenho no GitHub e
-            refletidas no posicionamento visual do site.
+            O foco aqui não é empilhar frameworks. É manter uma fundação
+            coerente para crescer com baixo atrito.
           </p>
         </div>
 

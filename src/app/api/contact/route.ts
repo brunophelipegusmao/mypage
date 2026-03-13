@@ -1,87 +1,92 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-// Função para simular envio de email (você pode substituir por um serviço real)
-async function sendEmail(to: string, subject: string, content: string) {
-  // Aqui você pode integrar com serviços como:
-  // - Resend (recomendado): https://resend.com
-  // - SendGrid: https://sendgrid.com
-  // - Nodemailer com Gmail/SMTP
-  // - EmailJS (frontend)
+import {
+  ContactConfigurationError,
+  ContactDeliveryError,
+  sendContactSubmission,
+} from "@/services/contact/contact-service";
+import {
+  ContactValidationError,
+  parseContactSubmission,
+} from "@/services/contact/contact-validation";
 
-  // Por enquanto, vamos simular o envio e logar no console
-  console.log(`📧 Email enviado para: ${to}`);
-  console.log(`📋 Assunto: ${subject}`);
-  console.log(`📄 Conteúdo:\n${content}`);
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
-  // Retorna sucesso (simula envio bem-sucedido)
-  return true;
-}
+const noStoreHeaders = {
+  "Cache-Control": "no-store, max-age=0",
+} as const;
 
-export async function POST(request: NextRequest) {
+const jsonNoStore = (body: unknown, init?: ResponseInit) =>
+  NextResponse.json(body, {
+    ...init,
+    headers: {
+      ...noStoreHeaders,
+      ...init?.headers,
+    },
+  });
+
+export async function POST(request: Request) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const submission = parseContactSubmission(await request.json());
+    const result = await sendContactSubmission(submission);
 
-    // Validação básica
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        { error: "Todos os campos são obrigatórios" },
+    return jsonNoStore(
+      {
+        success: true,
+        id: result.id,
+      },
+      { status: 201 },
+    );
+  } catch (error) {
+    if (error instanceof ContactValidationError) {
+      return jsonNoStore(
+        {
+          error: error.message,
+          issues: error.issues,
+        },
         { status: 400 },
       );
     }
 
-    // Validação de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: "Email inválido" }, { status: 400 });
-    }
+    if (error instanceof ContactConfigurationError) {
+      console.error("Contact flow misconfigured:", error.message);
 
-    // Criar o conteúdo do email
-    const emailContent = `
-📬 NOVA MENSAGEM DE CONTATO - PORTFÓLIO
-
-👤 Nome: ${name}
-📧 Email: ${email}
-📋 Assunto: ${subject}
-
-💬 Mensagem:
-${message}
-
----
-⏰ Enviado em: ${new Date().toLocaleString("pt-BR", {
-      timeZone: "America/Sao_Paulo",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    })}
-
-🔗 Responder para: ${email}
-    `.trim();
-
-    // Enviar o email
-    const emailSent = await sendEmail(
-      "bruno.mulim.prog@gmail.com",
-      `[PORTFÓLIO] ${subject}`,
-      emailContent,
-    );
-
-    if (!emailSent) {
-      return NextResponse.json(
-        { error: "Erro ao enviar email" },
-        { status: 500 },
+      return jsonNoStore(
+        {
+          error: "Fluxo de contato indisponível por configuração incompleta.",
+        },
+        { status: 503 },
       );
     }
 
-    // Retorna sucesso
-    return NextResponse.json({
-      success: true,
-      message: "Mensagem enviada com sucesso! Retornarei em breve.",
-    });
-  } catch (error) {
-    console.error("❌ Erro ao processar contato:", error);
-    return NextResponse.json(
-      { error: "Erro interno do servidor" },
+    if (error instanceof ContactDeliveryError) {
+      console.error("Contact email delivery failed:", error.message);
+
+      return jsonNoStore(
+        {
+          error: "Não foi possível enviar a mensagem no momento.",
+        },
+        { status: 502 },
+      );
+    }
+
+    if (error instanceof SyntaxError) {
+      return jsonNoStore(
+        {
+          error: "Payload JSON inválido.",
+        },
+        { status: 400 },
+      );
+    }
+
+    console.error("Unhandled contact route error:", error);
+
+    return jsonNoStore(
+      {
+        error: "Falha inesperada ao processar o contato.",
+      },
       { status: 500 },
     );
   }

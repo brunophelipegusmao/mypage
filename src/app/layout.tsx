@@ -4,7 +4,17 @@ import clsx from "clsx";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import ClientLayout from "@/components/ClientLayout";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import {
+  buildAbsoluteUrl,
+  shouldIndexSite,
+  siteDescription,
+  siteKeywords,
+  siteOrigin,
+  siteOwnerName,
+  siteTitle,
+  siteUrl,
+} from "@/lib/site-metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,36 +27,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bgm-tecnologia.vercel.app"),
-  applicationName: "Corelayer",
+  metadataBase: siteOrigin,
+  applicationName: siteOwnerName,
   title: {
-    default: "Corelayer - Análise de sistemas, entrega previsível",
-    template: "%s | Corelayer",
+    default: siteTitle,
+    template: `%s | ${siteOwnerName}`,
   },
-  description:
-    "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
-  keywords: [
-    "corelayer",
-    "clean architecture",
-    "desenvolvimento web",
-    "desenvolvimento mobile",
-    "apis",
-    "dashboards",
-    "next.js",
-    "react",
-    "typescript",
-  ],
-  authors: [{ name: "Corelayer" }],
-  creator: "Corelayer",
-  publisher: "Corelayer",
+  description: siteDescription,
+  keywords: siteKeywords,
+  authors: [{ name: siteOwnerName }],
+  creator: siteOwnerName,
+  publisher: siteOwnerName,
   category: "technology",
-  classification: "Business",
   openGraph: {
-    title: "Corelayer - Análise de sistemas, entrega previsível",
-    description:
-      "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
-    url: "https://bgm-tecnologia.vercel.app",
-    siteName: "Corelayer",
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: siteOwnerName,
     locale: "pt_BR",
     type: "website",
     images: [
@@ -54,36 +51,30 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Corelayer",
+        alt: siteTitle,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Corelayer - Análise de sistemas, entrega previsível",
-    description:
-      "Sistemas sob medida para web e mobile com foco em performance e qualidade.",
-    creator: "@corelayer",
+    title: siteTitle,
+    description: siteDescription,
     images: ["/og-image.svg"],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: shouldIndexSite,
+    follow: shouldIndexSite,
     googleBot: {
-      index: true,
-      follow: true,
+      index: shouldIndexSite,
+      follow: shouldIndexSite,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "google-site-verification-code", // Adicionar depois do deploy
-  },
   alternates: {
-    canonical: "https://bgm-tecnologia.vercel.app",
+    canonical: "/",
   },
-  manifest: "/pwa/manifest.webmanifest",
   icons: {
     icon: [
       {
@@ -122,8 +113,6 @@ export const metadata: Metadata = {
     shortcut: "/web/favicon.ico",
   },
   other: {
-    "mobile-web-app-capable": "yes",
-    "msapplication-TileColor": "#1B6AFF",
     "theme-color": "#1B6AFF",
   },
 };
@@ -137,36 +126,26 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": "https://bgm-tecnologia.vercel.app/#organization",
-        name: "Corelayer",
-        url: "https://bgm-tecnologia.vercel.app",
-        logo: "https://bgm-tecnologia.vercel.app/logo.svg",
-        description:
-          "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.",
-        service: [
-          {
-            "@type": "Service",
-            name: "Desenvolvimento Web & Mobile",
-            description:
-              "Aplicações modernas e responsivas para web e dispositivos móveis",
-          },
-          {
-            "@type": "Service",
-            name: "APIs & Dashboards",
-            description:
-              "Desenvolvimento de APIs RESTful e dashboards interativos para gestão de dados",
-          },
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: siteOwnerName,
+        url: siteUrl,
+        image: buildAbsoluteUrl("/og-image.svg"),
+        jobTitle: "Engenharia de produto e sistemas",
+        description: siteDescription,
+        sameAs: [
+          "https://github.com/brunophelipegusmao",
+          "https://www.linkedin.com/in/bruno-mulim/",
         ],
       },
       {
         "@type": "WebSite",
-        "@id": "https://bgm-tecnologia.vercel.app/#website",
-        url: "https://bgm-tecnologia.vercel.app",
-        name: "Corelayer",
-        description: "Análise de sistemas, entrega previsível",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: siteTitle,
+        description: siteDescription,
         publisher: {
-          "@id": "https://bgm-tecnologia.vercel.app/#organization",
+          "@id": `${siteUrl}/#person`,
         },
         inLanguage: "pt-BR",
       },
@@ -197,7 +176,7 @@ export default function RootLayout({
           "text-foreground bg-background",
         )}
       >
-        <ClientLayout>{children}</ClientLayout>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

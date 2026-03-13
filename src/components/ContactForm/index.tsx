@@ -1,9 +1,8 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
-import { EMAILJS_CONFIG } from "@/lib/emailjs-config";
+import { routeCatalog } from "@/lib/navigation/app-routes";
 
 import { Button } from "../Button";
 import { Card, CardContent, CardHeader, CardTitle } from "../Card";
@@ -13,91 +12,69 @@ export interface ContactFormProps {
   animation?: string;
 }
 
+type ContactFormMessageType = "success" | "error" | "";
+
 export function ContactForm({ animation }: ContactFormProps) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState<"success" | "error" | "">("");
-  const formRef = useRef<HTMLFormElement>(null);
+  const [messageType, setMessageType] = useState<ContactFormMessageType>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setMessage("");
     setMessageType("");
+    setIsSubmitting(true);
 
-    // Usar tanto a referência do evento quanto a ref para máxima segurança
-    const form = formRef.current || e.currentTarget;
-
-    if (!form) {
-      setMessage("Erro: Formulário não encontrado");
-      setMessageType("error");
-      setIsSubmitting(false);
-      return;
-    }
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = (formData.get("name") as string) || "";
+    const email = (formData.get("email") as string) || "";
+    const subject = (formData.get("subject") as string) || "";
+    const messageText = (formData.get("message") as string) || "";
 
     try {
-      // Enviar email via EmailJS usando configuração centralizada
-      const result = await emailjs.sendForm(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
-        form,
-        EMAILJS_CONFIG.PUBLIC_KEY,
-      );
+      const response = await fetch(routeCatalog.apiContact, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message: messageText,
+        }),
+      });
 
-      if (result.status === 200) {
-        setMessage("✅ Mensagem enviada automaticamente! Retornarei em breve.");
-        setMessageType("success");
+      const payload = (await response.json()) as {
+        error?: string;
+        issues?: string[];
+      };
 
-        // Resetar formulário de forma segura
-        form.reset();
+      if (!response.ok) {
+        const issues =
+          Array.isArray(payload.issues) && payload.issues.length > 0
+            ? payload.issues.join(" ")
+            : payload.error;
 
-        // Limpar mensagem após 5 segundos
-        setTimeout(() => {
-          setMessage("");
-          setMessageType("");
-        }, 5000);
-      } else {
-        throw new Error("Falha no envio EmailJS");
+        throw new Error(
+          issues ??
+            "Não foi possível enviar sua mensagem no momento. Tente novamente.",
+        );
       }
-    } catch (error) {
-      console.error("Erro EmailJS:", error);
 
-      // Fallback: método mailto caso EmailJS falhe
-      const formData = new FormData(form);
-      const name =
-        (formData.get("user_name") as string) ||
-        (formData.get("from_name") as string) ||
-        (formData.get("name") as string);
-      const email =
-        (formData.get("user_email") as string) ||
-        (formData.get("from_email") as string) ||
-        (formData.get("email") as string);
-      const subject = formData.get("subject") as string;
-      const messageText = formData.get("message") as string;
-
-      const mailtoLink = `mailto:bruno.mulim.prog@gmail.com?subject=${encodeURIComponent(
-        `[PORTFÓLIO] ${subject}`,
-      )}&body=${encodeURIComponent(
-        `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${messageText}\n\n---\nEnviado via formulário do portfólio`,
-      )}`;
-
-      window.location.href = mailtoLink;
-
+      form.reset();
       setMessage(
-        "⚠️ Usando método alternativo. Complete o envio no seu aplicativo de email.",
+        "Mensagem enviada com sucesso. O contato foi processado no servidor e entregue por email.",
       );
       setMessageType("success");
-
-      // Limpar formulário também no fallback - verificar se existe
-      if (form) {
-        form.reset();
-      }
-
-      // Limpar mensagem após 5 segundos
-      setTimeout(() => {
-        setMessage("");
-        setMessageType("");
-      }, 5000);
+    } catch (error) {
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Não foi possível enviar sua mensagem no momento. Tente novamente.",
+      );
+      setMessageType("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -106,20 +83,26 @@ export function ContactForm({ animation }: ContactFormProps) {
   return (
     <Card animation={animation}>
       <CardHeader>
-        <CardTitle>Envie uma Mensagem</CardTitle>
+        <CardTitle>Contato por email</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} ref={formRef} className="space-y-6">
+        <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+          Este formulário envia a mensagem no servidor por um handler dedicado
+          do App Router. O fluxo é público, isolado do restante do sistema e
+          não depende de EmailJS nem de cliente de email local.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="fade-in-up animate-delay-300">
             <label
-              htmlFor="user_name"
+              htmlFor="contact-name"
               className="mb-2 block text-sm font-medium text-gray-300"
             >
               Nome *
             </label>
             <Input
-              id="user_name"
-              name="user_name"
+              id="contact-name"
+              name="name"
               type="text"
               required
               disabled={isSubmitting}
@@ -129,14 +112,14 @@ export function ContactForm({ animation }: ContactFormProps) {
 
           <div className="fade-in-up animate-delay-400">
             <label
-              htmlFor="user_email"
+              htmlFor="contact-email"
               className="mb-2 block text-sm font-medium text-gray-300"
             >
               Email *
             </label>
             <Input
-              id="user_email"
-              name="user_email"
+              id="contact-email"
+              name="email"
               type="email"
               required
               disabled={isSubmitting}
@@ -184,7 +167,7 @@ export function ContactForm({ animation }: ContactFormProps) {
                 className={`rounded-lg p-3 text-sm ${
                   messageType === "success"
                     ? "border border-green-200 bg-green-100 text-green-800"
-                    : "border border-red-200 bg-red-100 text-red-800"
+                    : "border border-red-500/30 bg-red-500/10 text-red-100"
                 }`}
               >
                 {message}
@@ -197,10 +180,10 @@ export function ContactForm({ animation }: ContactFormProps) {
               type="submit"
               variant="primary"
               size="lg"
-              className="hover:shadow-primary/30 w-full"
               disabled={isSubmitting}
+              className="hover:shadow-primary/30 w-full"
             >
-              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
+              {isSubmitting ? "Enviando..." : "Enviar mensagem"}
             </Button>
           </div>
         </form>

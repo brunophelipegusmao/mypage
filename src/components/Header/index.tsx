@@ -6,14 +6,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import PWAInstallButton from "@/components/PWAInstallButton";
 import ThemeToggle from "@/components/ThemeToggle";
+import { publicSiteNavigation, routeCatalog } from "@/lib/navigation/app-routes";
 
-const navItems = [
-  { href: "/services", label: "Serviços" },
-  { href: "/portfolio", label: "Portfólio" },
-  { href: "/contact", label: "Contato" },
-];
+const isActiveRoute = (pathname: string, href: string) =>
+  pathname === href || pathname.startsWith(`${href}/`);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +29,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="group flex items-center gap-3">
+        <Link href={routeCatalog.home} className="group flex items-center gap-3">
           <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-primary/30 bg-primary/10">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/35 via-transparent to-transparent" />
             <div className="relative space-y-1">
@@ -44,10 +41,10 @@ export default function Header() {
 
           <div>
             <p className="text-sm leading-tight font-semibold tracking-[0.24em] text-primary uppercase">
-              Corelayer
+              Bruno Mulim
             </p>
             <p className="text-foreground/65 group-hover:text-foreground/90 text-xs transition-colors">
-              Transformando a necessidade em solução.
+              Next.js full-stack, produto e estrutura limpa.
             </p>
           </div>
         </Link>
@@ -55,8 +52,8 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <nav>
             <ul className="flex items-center gap-1 rounded-full border border-white/10 bg-card/55 p-1">
-              {navItems.map((item, index) => {
-                const isActive = pathname === item.href;
+              {publicSiteNavigation.map((item, index) => {
+                const isActive = isActiveRoute(pathname, item.href);
 
                 return (
                   <motion.li
@@ -88,12 +85,10 @@ export default function Header() {
               })}
             </ul>
           </nav>
-          <PWAInstallButton />
           <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <PWAInstallButton />
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -117,8 +112,8 @@ export default function Header() {
               {...menuVariants}
             >
               <ul className="mx-auto max-w-6xl space-y-1 px-4 py-3">
-                {navItems.map((item) => {
-                  const isActive = pathname === item.href;
+                {publicSiteNavigation.map((item) => {
+                  const isActive = isActiveRoute(pathname, item.href);
 
                   return (
                     <li key={item.href}>

@@ -1,15 +1,28 @@
 import { MetadataRoute } from "next";
 
+import {
+  buildAbsoluteUrl,
+  shouldIndexSite,
+  siteUrl,
+} from "@/lib/site-metadata";
+
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://bgm-tecnologia.vercel.app";
+  if (!shouldIndexSite) {
+    return {
+      rules: {
+        userAgent: "*",
+        disallow: "/",
+      },
+    };
+  }
 
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/_next/"],
+      disallow: ["/api/", "/dashboard/", "/_next/"],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: buildAbsoluteUrl("/sitemap.xml"),
+    host: siteUrl,
   };
 }
